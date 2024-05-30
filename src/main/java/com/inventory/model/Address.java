@@ -124,6 +124,7 @@ public class Address {
         this.createdAt = createdAt;
         this.updatedBy = updatedBy;
         this.updatedAt = updatedAt;
+        
     }
 
     public Address() {
