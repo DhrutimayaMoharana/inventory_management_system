@@ -1,180 +1,174 @@
 package com.inventory.model;
 
+import com.inventory.enums.ProductType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.util.Date;
-
-import com.inventory.enums.PrdouctType;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Entity
 public class ProductInventory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+    private int productId;
 
-  private String productName;
+    private String productName;
 
-  private Double costPrice;
+    private double costPrice;
 
-  private Double sellingPrice;
+    private double sellPrice;
 
-  private int minQuantity;
+    private int minQuantity;
 
-  private int quantity;
+    private int quantity;
 
-  private PrdouctType prdouctType;
+    private ProductType productType;
 
+    private boolean isActive;
 
- private boolean isActive;
+    private Date createdAt;
 
- private String createBy;
+    private String createdBy;
 
- private Date createdAt;
+    private Date updatedAt;
 
+    private String updatedBy;
 
- private String updatedBy;
+    public ProductInventory() {
+    }
 
+    public ProductInventory(int productId, String productName, double costPrice, double sellPrice, int minQuantity,
+      int quantity, ProductType productType, boolean isActive, Date createdAt, String createdBy,
+      Date updatedAt, String updatedBy) {
 
- private Date updateAt;
+        this.productId = productId;
+        this.productName = productName;
+        this.costPrice = costPrice;
+        this.sellPrice = sellPrice;
+        this.minQuantity = minQuantity;
+        this.quantity = quantity;
+        this.productType = productType;
+        this.isActive = isActive;
+        this.createdAt = createdAt;
+        this.createdBy = createdBy;
+        this.updatedAt = updatedAt;
+        this.updatedBy = updatedBy;
+    }
 
+    public int getProductId() {
+        return productId;
+    }
 
-public String getProductName() {
-    return productName;
-}
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
 
+    public String getProductName() {
+        return productName;
+    }
 
-public void setProductName(String productName) {
-    this.productName = productName;
-}
-
-
-public Double getCostPrice() {
-    return costPrice;
-}
-
-
-public void setCostPrice(Double costPrice) {
-    this.costPrice = costPrice;
-}
-
-
-public Double getSellingPrice() {
-    return sellingPrice;
-}
-
-
-public void setSellingPrice(Double sellingPrice) {
-    this.sellingPrice = sellingPrice;
-}
-
-
-public int getMinQuantity() {
-    return minQuantity;
-}
-
-
-public void setMinQuantity(int minQuantity) {
-    this.minQuantity = minQuantity;
-}
-
-
-public int getQuantity() {
-    return quantity;
-}
-
-
-public void setQuantity(int quantity) {
-    this.quantity = quantity;
-}
-
-
-public PrdouctType getPrdouctType() {
-    return prdouctType;
-}
-
-
-public void setPrdouctType(PrdouctType prdouctType) {
-    this.prdouctType = prdouctType;
-}
-
-
-public boolean isActive() {
-    return isActive;
-}
-
-
-public void setActive(boolean isActive) {
-    this.isActive = isActive;
-}
-
-
-public String getCreateBy() {
-    return createBy;
-}
-
-
-public void setCreateBy(String createBy) {
-    this.createBy = createBy;
-}
-
-
-public Date getCreatedAt() {
-    return createdAt;
-}
-
-
-public void setCreatedAt(Date createdAt) {
-    this.createdAt = createdAt;
-}
-
-
-public String getUpdatedBy() {
-    return updatedBy;
-}
-
-
-public void setUpdatedBy(String updatedBy) {
-    this.updatedBy = updatedBy;
-}
-
-
-public Date getUpdateAt() {
-    return updateAt;
-}
-
-
-public void setUpdateAt(Date updateAt) {
-    this.updateAt = updateAt;
-}
-
-
-public ProductInventory(String productName, Double costPrice, Double sellingPrice, int minQuantity, int quantity,
-        PrdouctType prdouctType, boolean isActive, String createBy, Date createdAt, String updatedBy, Date updateAt) {
-    this.productName = productName;
-    this.costPrice = costPrice;
-    this.sellingPrice = sellingPrice;
-    this.minQuantity = minQuantity;
-    this.quantity = quantity;
-    this.prdouctType = prdouctType;
-    this.isActive = isActive;
-    this.createBy = createBy;
-    this.createdAt = createdAt;
-    this.updatedBy = updatedBy;
-    this.updateAt = updateAt;
-}
-
-
-public ProductInventory() {
-}
-
-
-
-
-
-
-
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public double getCostPrice() {
+        return costPrice;
+    }
+
+    public void setCostPrice(double costPrice) {
+        this.costPrice = costPrice;
+    }
+
+    public double getSellPrice() {
+        return sellPrice;
+    }
+
+    public void setSellPrice(double sellPrice) {
+        this.sellPrice = sellPrice;
+    }
+
+    public int getMinQuantity() {
+        return minQuantity;
+    }
+
+    public void setMinQuantity(int minQuantity) {
+        this.minQuantity = minQuantity;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductInventory{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", costPrice=" + costPrice +
+                ", sellPrice=" + sellPrice +
+                ", minQuantity=" + minQuantity +
+                ", quantity=" + quantity +
+                ", productType=" + productType +
+                ", isActive=" + isActive +
+                ", createdAt=" + createdAt +
+                ", createdBy='" + createdBy + '\'' +
+                ", updatedAt=" + updatedAt +
+                ", updatedBy='" + updatedBy + '\'' +
+                '}';
+    }
 }

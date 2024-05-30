@@ -1,14 +1,11 @@
 package com.inventory.model;
+
 import java.util.Date;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
+import jakarta.persistence.*;
 
-@javax.persistence.Entity
+@Entity
 public class Address {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,16 +19,19 @@ public class Address {
 
     private String state;
 
+    @Column(nullable = false)
     private String pinCode;
 
-     private String createdBy;
+    private String createdBy;
 
-   
+
     private Date createdAt;
 
-     private String updatedBy;
- 
-     private Date updatedAt;
+    private String updatedBy;
+
+    private Date updatedAt;
+
+    private boolean isActive;
 
     public int getId() {
         return id;
@@ -113,23 +113,28 @@ public class Address {
         this.updatedAt = updatedAt;
     }
 
-    public Address(String street, String city, String landMark, String state, String pinCode, String createdBy,
-            Date createdAt, String updatedBy, Date updatedAt) {
-        this.street = street;
-        this.city = city;
-        this.landMark = landMark;
-        this.state = state;
-        this.pinCode = pinCode;
-        this.createdBy = createdBy;
-        this.createdAt = createdAt;
-        this.updatedBy = updatedBy;
-        this.updatedAt = updatedAt;
+    public boolean isActive() {
+        return isActive;
     }
 
-    public Address() {
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
-    
-
-     
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", landMark='" + landMark + '\'' +
+                ", state='" + state + '\'' +
+                ", pinCode='" + pinCode + '\'' +
+                ", createdBy='" + createdBy + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedBy='" + updatedBy + '\'' +
+                ", updatedAt=" + updatedAt +
+                ", isActive=" + isActive +
+                '}';
+    }
 }
