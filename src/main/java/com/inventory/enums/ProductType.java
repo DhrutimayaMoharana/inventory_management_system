@@ -1,4 +1,4 @@
 package com.inventory.enums;
 
-public enum Role {
+public enum ProductType {
 }

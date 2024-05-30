@@ -1,16 +1,14 @@
 package com.inventory.model;
 
+import com.inventory.enums.Status;
+import jakarta.persistence.*;
+
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Entity;
-
-import com.inventory.enums.Status;
-
-import javax.persistence.*;
-
 @Entity
 public class UserOrder {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
@@ -21,8 +19,10 @@ public class UserOrder {
     private Status status;
 
     @OneToMany
-    @JoinColumn(name = "user_order_id")
+    @JoinColumn(name = "order_id")
     private List<OrderProductDetails> productsOrderDetails;
+
+    private double totalCost;
 
     private String createdBy;
 
@@ -33,6 +33,7 @@ public class UserOrder {
     private Date updatedAt;
 
     private boolean isActive;
+    
 
     public int getOrderId() {
         return orderId;
@@ -57,7 +58,6 @@ public class UserOrder {
     public void setStatus(Status status) {
         this.status = status;
     }
-
 
     public String getCreatedBy() {
         return createdBy;
@@ -105,6 +105,7 @@ public class UserOrder {
                 "orderId=" + orderId +
                 ", address=" + address +
                 ", status=" + status +
+                ", productsOrderDetails=" + productsOrderDetails +
                 ", createdBy='" + createdBy + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedBy='" + updatedBy + '\'' +
@@ -113,8 +114,11 @@ public class UserOrder {
                 '}';
     }
 
-    public UserOrder() {
+    public double getTotalCost() {
+        return totalCost;
     }
 
-    
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
 }
